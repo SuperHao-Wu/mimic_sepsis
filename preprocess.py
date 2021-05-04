@@ -14,13 +14,9 @@ import pandas as pd
 import psycopg2 as pg
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-u", "--username", default='USERNAME', help="Username used to access the MIMIC Database", type=str)
-parser.add_argument("-p", "--password", default='PASSWORD', help="User's password for MIMIC Database", type=str)
-pargs = parser.parse_args()
 
 # Initializing database connection
-conn = pg.connect("dbname='mimic' user={0} host='mimic' options='--search_path=mimimciii' password={1}".format(pargs.username,pargs.password))
+conn = pg.connect("dbname='mimic' user='server' host='localhost' options='--search_path=mimimciii' password='apriko321'")
 
 # Path for processed data storage
 exportdir = os.path.join(os.getcwd(),'processed_files')
